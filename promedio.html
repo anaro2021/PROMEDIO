@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PROMEDIO DE 3 NOTAS</title>
+    <style>
+        #display {
+            border: 2px solid green;
+            margin: 10px; /* Agregar margen para mejorar la apariencia */
+        }
+    </style>
+</head>
+<body>
+    <h1>Pedir tres Notas de un Alumno</h1>
+
+    <label for="no1">Nota1</label>
+    <input type="number" id="no1">
+    <label for="no2">Nota2</label>
+    <input type="number" id="no2">
+    <label for="no3">Nota3</label>
+    <input type="number" id="no3"> <!-- Corregir el id aquí -->
+    
+    <div id="display"></div>
+    
+    <button onclick="PideNotasFormulario()">
+        Calcular el promedio
+    </button>
+    
+    <script>
+        function PideNotasFormulario() {
+            let no1 = parseFloat(document.getElementById("no1").value);        
+            let no2 = parseFloat(document.getElementById("no2").value);
+            let no3 = parseFloat(document.getElementById("no3").value); // Corregir el id aquí
+            let display = document.getElementById("display");
+            display.innerHTML = Calculopromedio(no1, no2, no3);
+        }  
+
+        function Calculopromedio(no1, no2, no3) {
+            let suma = no1 + no2 + no3;
+            let prom = suma / 3;
+
+            if (prom >= 5) {
+                return "<h1>Promocionado</h1> Promedio: " + prom.toFixed(2);
+            } else {
+                return "<h1>No Promocionado</h1> Promedio: " + prom.toFixed(2);
+            }          
+        }
+    </script>
+</body>
+</html>
